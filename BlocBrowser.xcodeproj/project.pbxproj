@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		496375951A3CD6D40003B882 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 496375941A3CD6D40003B882 /* main.m */; };
 		496375981A3CD6D40003B882 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 496375971A3CD6D40003B882 /* AppDelegate.m */; };
-		4963759B1A3CD6D40003B882 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4963759A1A3CD6D40003B882 /* ViewController.m */; };
 		4963759E1A3CD6D40003B882 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4963759C1A3CD6D40003B882 /* Main.storyboard */; };
 		496375A01A3CD6D40003B882 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4963759F1A3CD6D40003B882 /* Images.xcassets */; };
 		496375A31A3CD6D40003B882 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496375A11A3CD6D40003B882 /* LaunchScreen.xib */; };
 		496375AF1A3CD6D40003B882 /* BlocBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 496375AE1A3CD6D40003B882 /* BlocBrowserTests.m */; };
+		496375BA1A3CD7060003B882 /* WebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496375B91A3CD7060003B882 /* WebBrowserViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +32,14 @@
 		496375941A3CD6D40003B882 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		496375961A3CD6D40003B882 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		496375971A3CD6D40003B882 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		496375991A3CD6D40003B882 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4963759A1A3CD6D40003B882 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4963759D1A3CD6D40003B882 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4963759F1A3CD6D40003B882 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		496375A21A3CD6D40003B882 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		496375A81A3CD6D40003B882 /* BlocBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		496375AD1A3CD6D40003B882 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		496375AE1A3CD6D40003B882 /* BlocBrowserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocBrowserTests.m; sourceTree = "<group>"; };
+		496375B81A3CD7060003B882 /* WebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebBrowserViewController.h; sourceTree = "<group>"; };
+		496375B91A3CD7060003B882 /* WebBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebBrowserViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +83,8 @@
 			children = (
 				496375961A3CD6D40003B882 /* AppDelegate.h */,
 				496375971A3CD6D40003B882 /* AppDelegate.m */,
-				496375991A3CD6D40003B882 /* ViewController.h */,
-				4963759A1A3CD6D40003B882 /* ViewController.m */,
+				496375B81A3CD7060003B882 /* WebBrowserViewController.h */,
+				496375B91A3CD7060003B882 /* WebBrowserViewController.m */,
 				4963759C1A3CD6D40003B882 /* Main.storyboard */,
 				4963759F1A3CD6D40003B882 /* Images.xcassets */,
 				496375A11A3CD6D40003B882 /* LaunchScreen.xib */,
@@ -219,8 +219,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4963759B1A3CD6D40003B882 /* ViewController.m in Sources */,
 				496375981A3CD6D40003B882 /* AppDelegate.m in Sources */,
+				496375BA1A3CD7060003B882 /* WebBrowserViewController.m in Sources */,
 				496375951A3CD6D40003B882 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
