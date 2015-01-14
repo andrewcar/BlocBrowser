@@ -9,6 +9,11 @@
 #import "WebBrowserViewController.h"
 #import "AwesomeFloatingToolbar.h"
 
+#define WebBrowserBackString NSLocalizedString(@"Back", @"Back command")
+#define WebBrowserForwardString NSLocalizedString(@"Forward", @"Forward command")
+#define WebBrowserStopString NSLocalizedString(@"Stop", @"Stop command")
+#define WebBrowserRefreshString NSLocalizedString(@"Refresh", @"Refresh command")
+
 @interface WebBrowserViewController () <UIWebViewDelegate, UITextFieldDelegate, AwesomeFloatingToolbarDelegate>
 
 @property (nonatomic, strong) UIWebView *webView;
@@ -22,15 +27,10 @@
 
 @implementation WebBrowserViewController
 
-#define WebBrowserBackString NSLocalizedString(@"Back", @"Back command")
-#define WebBrowserForwardString NSLocalizedString(@"Forward", @"Forward command")
-#define WebBrowserStopString NSLocalizedString(@"Stop", @"Stop command")
-#define WebBrowserRefreshString NSLocalizedString(@"Refresh", @"Refresh command")
-
 #pragma mark - UIViewController
 
 - (void)loadView {
-    
+
     // create view called mainView
     UIView *mainView = [UIView new];
     
@@ -58,6 +58,9 @@
     
     // set current view to mainView
     self.view = mainView;
+    
+//    self.awesomeToolbar.frame = CGRectMake(blanket, CGRectGetHeight(self.view.bounds) - blanket - itemHeight, CGRectGetWidth(self.view.bounds) - (blanket * 2), itemHeight);
+    self.awesomeToolbar.frame = CGRectMake(20, 100, 200, 60);
 }
 
 - (void)viewDidLoad {
@@ -86,9 +89,6 @@
     // Now, assign the frames.
     self.addressBar.frame = CGRectMake(0, 0, width, itemHeight);
     self.webView.frame = CGRectMake(0, CGRectGetMaxY(self.addressBar.frame), width, browserHeight);
-    
-    self.awesomeToolbar.frame = CGRectMake(20, 523, 335, 60);
-    
 }
 
 #pragma mark - AwesomeFloatingToolbarDelegate
@@ -102,6 +102,29 @@
         [self.webView stopLoading];
     } else if ([title isEqual:WebBrowserRefreshString]) {
         [self.webView reload];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IT DOES NOT WORK" message:@"ERROR" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
+- (void)floatingToolbar:(AwesomeFloatingToolbar *)toolbar didTryToPanWithOffset:(CGPoint *)offset {
+    CGPoint startingPoint = toolbar.frame.origin;
+    CGPoint newPoint = CGPointMake(startingPoint.x + offset->x, startingPoint.y + offset->y);
+    
+    CGRect potentialNewFrame = CGRectMake(newPoint.x, newPoint.y, CGRectGetWidth(toolbar.frame), CGRectGetHeight(toolbar.frame));
+    
+    if (CGRectContainsRect(self.view.bounds, potentialNewFrame)) {
+        toolbar.frame = potentialNewFrame;
+    }
+}
+
+- (void)floatingToolbar:(AwesomeFloatingToolbar *)toolbar didTryToPinchWithScale:(CGFloat)scale andVelocity:(CGFloat)velocity {
+    CGRect potentialNewFrame = CGRectMake(toolbar.frame.origin.x, toolbar.frame.origin.y,
+                                          toolbar.frame.size.width * scale, toolbar.frame.size.height * scale);
+    
+    if (CGRectContainsRect(self.view.bounds, potentialNewFrame)) {
+        toolbar.frame = potentialNewFrame;
     }
 }
 
