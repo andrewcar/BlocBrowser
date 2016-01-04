@@ -59,9 +59,6 @@
     
     // set current view to mainView
     self.view = mainView;
-    
-//    self.awesomeToolbar.frame = CGRectMake(blanket, CGRectGetHeight(self.view.bounds) - blanket - itemHeight, CGRectGetWidth(self.view.bounds) - (blanket * 2), itemHeight);
-    self.awesomeToolbar.frame = CGRectMake(20, 100, 200, 60);
 }
 
 - (void)viewDidLoad {
@@ -86,6 +83,7 @@
     // Now, assign the frames.
     self.addressBar.frame = CGRectMake(0, 0, width, itemHeight);
     self.webView.frame = CGRectMake(0, CGRectGetMaxY(self.addressBar.frame), width, browserHeight);
+    self.awesomeToolbar.frame = CGRectMake(CGRectGetMidX(self.webView.frame) - self.awesomeToolbar.frame.size.width / 2, CGRectGetMaxY(self.webView.frame) - self.awesomeToolbar.frame.size.height - 20, 200, 60);
 }
 
 #pragma mark - AwesomeFloatingToolbarDelegate
