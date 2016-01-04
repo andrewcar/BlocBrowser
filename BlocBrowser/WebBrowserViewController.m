@@ -47,6 +47,7 @@
     self.addressBar.placeholder = NSLocalizedString(@"Type a URL or search Google", @"Placeholder text for web browser URL field");
     self.addressBar.backgroundColor = [UIColor colorWithWhite:220/255.0f alpha:1];
     self.addressBar.delegate = self;
+    self.addressBar.textAlignment = NSTextAlignmentCenter;
     
     self.awesomeToolbar = [[AwesomeFloatingToolbar alloc] initWithFourTitles:@[WebBrowserBackString, WebBrowserForwardString, WebBrowserStopString, WebBrowserRefreshString]];
     self.awesomeToolbar.delegate = self;
@@ -72,10 +73,6 @@
     // add and configure activityIndicator
     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.activityIndicator];
-    
-    // display welcome alert
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Welcome!", @"Welcome title") message:NSLocalizedString(@"This is best browser", @"Welcome message") delegate:nil cancelButtonTitle:NSLocalizedString(@"Alright", @"Affirmation of welcome") otherButtonTitles:nil, nil];
-    [alert show];
 }
 
 - (void) viewWillLayoutSubviews {
